@@ -43,7 +43,7 @@ END_GAME_ON_KILLS = true                -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 25                          -- What level should we let heroes get to?
+MAX_LEVEL = 30                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
@@ -91,8 +91,8 @@ ENABLED_RUNES[DOTA_RUNE_ARCANE] = true
 
 
 MAX_NUMBER_OF_TEAMS = 2                -- How many potential teams can be in this game mode?
--- USE_CUSTOM_TEAM_COLORS = true           -- Should we use custom team colors?
--- USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS = true          -- Should we use custom team colors to color the players/minimap?
+USE_CUSTOM_TEAM_COLORS = false           -- Should we use custom team colors?
+USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS = false          -- Should we use custom team colors to color the players/minimap?
 
 -- TEAM_COLORS = {}                        -- If USE_CUSTOM_TEAM_COLORS is set, use these colors.
 -- TEAM_COLORS[DOTA_TEAM_GOODGUYS] = { 61, 210, 150 }  --    Teal

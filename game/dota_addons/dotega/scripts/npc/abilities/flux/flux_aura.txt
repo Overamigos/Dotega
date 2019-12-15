@@ -1,0 +1,90 @@
+"DOTAAbilities"
+{
+  "flux_aura"
+  {
+    //"ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "flux_ult"
+    "AoERadius"               "1000"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    
+    "precache"
+    {
+      "particle"          "particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance_explosion.vpcf"
+      "particle"          "particles/units/heroes/hero_arc_warden/arc_warden_magnetic_edgeroll.vpcf"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+      "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+      "particle"          "particles/flux/flux_ult_ring.vpcf"
+      "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile.vpcf"  
+    }
+    
+      // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"          "1000 1000 1000 1000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "regen_per_hero"  "1 2 3 4"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "dis_per_stack"   "10 10 10 10"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "regen_per_stack"  "0.1 0.2 0.3 0.4"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "m_regen_per_stack"  "-0.1 -0.2 -0.3 -0.4"
+      }
+    }
+
+
+  
+
+   "Modifiers"
+    {
+      "modifier_stack_regen"
+      {
+        "Passive" "1"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%regen_per_stack"
+        }
+      }
+      "modifier_aura_check"
+      {
+        "ThinkInterval"     "0.1"
+        "Passive" "1"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%m_regen_per_stack"
+        }
+        "OnIntervalThink"
+        {
+          "RunScript"
+          {
+              "ScriptFile"    "heroes/flux/flux_aura.lua"
+              "Function"      "FluxAuraCheck"
+              "max_radius"    "%radius"
+              "modifier_stack_name"    "modifier_stack_regen"
+              "min_radius"    "%dis_per_stack"
+          }   
+        }
+      }
+    } 
+  }
+}
