@@ -26,6 +26,7 @@
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
       "particle"          "particles/flux/flux_ult_ring.vpcf"
       "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile.vpcf"  
+      "particle"          "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_pushrocks.vpcf"
     }
     
       // Special  
@@ -124,13 +125,18 @@
                 "ShouldStun" "0"
                 
               }
-              "RunScript"
+              // "RunScript"
+              // {
+              //     "ScriptFile"    "heroes/flux/flux_ult.lua"
+              //     "Function"      "FluxUltParticle"
+              //     "Target"  "TARGET"
+              // }
+              "FireEffect"
               {
-                  "ScriptFile"    "heroes/flux/flux_ult.lua"
-                  "Function"      "FluxUltParticle"
-                  "Target"  "TARGET"
-              }
-
+                "EffectName"        "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_pushrocks.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "Target"            "CASTER"
+              } 
               "FireSound"
               {
                   "EffectName"    ""
