@@ -2,6 +2,7 @@ function FluxAuraCheck( args)
     local caster = args.caster
 	local ability = args.ability
 	local modifierStack = args.modifier_stack_name
+	local modifierEffect = args.modifier_effect
 	local maxRadius = args.max_radius
 	local minRadius = args.min_radius
 	
@@ -21,4 +22,7 @@ function FluxAuraCheck( args)
 		stacks = stacks + math.floor((maxRadius - len)/minRadius)							  
 	end
 	caster:SetModifierStackCount(modifierStack, caster, stacks)
+	if stacks > 100 then
+		ability:ApplyDataDrivenModifier(caster, caster, modifierEffect, {duration = 0.1})
+	end
 end

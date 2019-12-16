@@ -16,17 +16,17 @@
     "AbilityManaCost"         "0"
     "AbilityChannelTime"      "5.0"
     "AoERadius"               "1200"
-    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_6"
     
     "precache"
     {
-      "particle"          "particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance_explosion.vpcf"
-      "particle"          "particles/units/heroes/hero_arc_warden/arc_warden_magnetic_edgeroll.vpcf"
+      "particle"          "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_target_trail.vpcf"
+      "particle"          "particles/econ/items/earth_spirit/earth_spirit_ti6_boulder/espirit_ti6_rollingboulder_gather_streak.vpcf"
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
       "particle"          "particles/flux/flux_ult_ring.vpcf"
-      "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile.vpcf"  
-      "particle"          "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_pushrocks.vpcf"
+      "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_lvl4_death_rocks.vpcf"  
+      "particle"          "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_groundrock.vpcf"
     }
     
       // Special  
@@ -35,13 +35,13 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "kbforce"        "-10 -15 -30"
+        "var_type"        "FIELD_FLOAT"
+        "kbforce"        "-3 -4 -6"
       }
       "02"
       {
         "var_type"        "FIELD_FLOAT"
-        "tick_rate"        "0.1 0.1 0.1"
+        "tick_rate"        "0.02 0.02 0.02"
       }
       "03"
       {
@@ -125,18 +125,18 @@
                 "ShouldStun" "0"
                 
               }
-              // "RunScript"
-              // {
-              //     "ScriptFile"    "heroes/flux/flux_ult.lua"
-              //     "Function"      "FluxUltParticle"
-              //     "Target"  "TARGET"
-              // }
-              "FireEffect"
+              "RunScript"
               {
-                "EffectName"        "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_pushrocks.vpcf"
-                "EffectAttachType"  "follow_origin"
-                "Target"            "CASTER"
-              } 
+                  "ScriptFile"    "heroes/flux/flux_ult.lua"
+                  "Function"      "FluxUltParticle"
+                  "Target"  "TARGET"
+              }
+              // "FireEffect"
+              // {
+              //   "EffectName"        "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_target_trail.vpcf"
+              //   "EffectAttachType"  "follow_origin"
+              //   "Target"            "TARGET"
+              // } 
               "FireSound"
               {
                   "EffectName"    ""
@@ -153,7 +153,7 @@
         {
           "FireEffect"
           {
-            "EffectName"        "particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance_explosion.vpcf"
+            "EffectName"        "particles/econ/items/earth_spirit/earth_spirit_ti6_boulder/espirit_ti6_rollingboulder_gather_streak.vpcf"
             "EffectAttachType"  "follow_origin"
             "Target"            "CASTER"
           }    

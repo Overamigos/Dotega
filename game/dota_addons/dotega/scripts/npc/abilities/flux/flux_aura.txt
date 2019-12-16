@@ -18,7 +18,8 @@
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
       "particle"          "particles/flux/flux_ult_ring.vpcf"
-      "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile.vpcf"  
+      "particle"          "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile.vpcf"
+      "particle"          "particles/econ/items/earth_spirit/earth_spirit_ti6_boulder/espirit_ti6_rollingboulder_gather.vpcf"  
     }
     
       // Special  
@@ -81,8 +82,22 @@
               "Function"      "FluxAuraCheck"
               "max_radius"    "%radius"
               "modifier_stack_name"    "modifier_stack_regen"
+              "modifier_effect"    "modifier_effect"
               "min_radius"    "%dis_per_stack"
           }   
+        }
+      }
+      "modifier_effect"
+      {
+        "OnCreated" 
+        {
+          "AttachEffect"
+          {
+              "Target" "CASTER"
+              "EffectName" "particles/econ/items/earth_spirit/earth_spirit_ti6_boulder/espirit_ti6_rollingboulder_gather.vpcf"
+              "EffectAttachType" "follow_origin"
+              "EffectRadius"   "20"
+          }
         }
       }
     } 

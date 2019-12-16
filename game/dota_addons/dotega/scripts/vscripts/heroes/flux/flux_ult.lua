@@ -3,7 +3,7 @@ function FluxUltParticle( args)
     local target = args.target
     local ability = args.ability
 
-    local particleName = "particles/econ/items/tiny/tiny_prestige/tiny_prestige_avalanche_projectile_ground.vpcf"
+    local particleName = "particles/units/heroes/hero_earth_spirit/espirit_bouldersmash_target_trail.vpcf"
     local poscaster = caster:GetAbsOrigin()* Vector( 1, 1, 0 )
     local postarget = target:GetAbsOrigin()* Vector( 1, 1, 0 )
     local distance = (poscaster - postarget):Length()
@@ -18,7 +18,7 @@ function FluxUltParticle( args)
         	fEndRadius = 0,
         	Source = caster,
         	bHasFrontalCone = false,
-        	fExpireTime = GameRules:GetGameTime() + 1,
+        	fExpireTime = GameRules:GetGameTime() + 0.1,
 		bDeleteOnHit = false,
 		vVelocity = forwardVec * 1000,
 		bProvidesVision = false,

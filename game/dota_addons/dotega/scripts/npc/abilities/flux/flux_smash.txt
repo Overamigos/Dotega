@@ -1,0 +1,156 @@
+"DOTAAbilities"
+{
+  "flux_smash"
+  {
+    //"ID"              "1852"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "flux_smash"
+    "AoERadius"               "1000"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "0.0"
+    "AbilityManaCost"         "0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    
+    "precache"
+    {
+      "particle"          "particles/econ/events/ti8/shivas_guard_ti8_slow.vpcf"
+      "particle"          "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+      "particle"          "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
+    }
+    
+      // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "length"          "150 200 250 300"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_max"      "50 100 150 200"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_min"      "25 50 75 100"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_percent_min" "10 15 20 25"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_percent_max" "20 30 40 50"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "duration"        "1 1 1 1"
+      }
+    }
+
+  
+    "OnSpellStart"
+    {
+      "AttachEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+            "EffectAttachType"  "attach_origin"
+            "Target"            "CASTER"
+            "ControlPoints"
+            {
+                "01"    "%length %length %length"
+            }
+        }
+
+      "RunScript"
+      {
+          "ScriptFile"    "heroes/flux/flux_smash.lua"
+          "Function"      "FluxSmashCast"
+          "length"          "%length"
+          "width"           "%width"
+          "damage_max"      "%damage_max"
+          "damage_min"      "%damage_min"
+          "slow_percent_min" "%slow_percent_min"
+          "slow_percent_max" "%slow_percent_max"
+          "duration"        "%duration"
+          "modifier_slow"   "modifier_stack_slow"
+          "modifier_slow_tooltip"   "modifier_stack_slow_tooltip"
+          "modifier_stack_slow_kb" "modifier_stack_slow_kb"
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+        "DeleteOnHit"   "0"
+    }
+  
+
+   "Modifiers"
+    {
+      "modifier_stack_slow"
+      {
+        "Duration"         "%duration"
+        "Passive"          "0"    
+
+        "IsDebuff"         "1"
+        "IsHidden"         "0"
+        "IsPurgable"       "1"
+
+        "EffectName"       "particles/econ/events/ti8/shivas_guard_ti8_slow.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
+        }
+      }
+      "modifier_stack_slow_tooltip"
+      {
+        "Duration"         "%duration"
+        "Passive"          "0"    
+
+        "IsDebuff"         "1"
+        "IsHidden"         "0"
+        "IsPurgable"       "1"
+
+      }
+       "modifier_stack_slow_kb"
+      {
+        "Passive"          "0"    
+
+        "IsDebuff"         "1"
+        "IsHidden"         "0"
+        "IsPurgable"       "1"
+
+        "EffectName"		 "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
+			  "EffectAttachType"	 "follow_origin"
+
+        "ThinkInterval"     "0.02"
+        "OnIntervalThink"
+        {
+          "RunScript"
+          {
+            "ScriptFile"    "heroes/flux/flux_smash.lua"
+            "Function"      "knockback"
+          }
+        }
+        "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile"    "heroes/flux/flux_smash.lua"
+            "Function"      "bugg"
+          }
+        }
+
+      }
+    } 
+  }
+}
