@@ -33,8 +33,7 @@ function FluxSmashCast(args)
 		local damage = damage_max - distance/length * (damage_max - damage_min)
 		
 		ability:ApplyDataDrivenModifier(caster, unit, modifier_slow, {duration = duration})
-		ability:ApplyDataDrivenModifier(caster, unit, modifier_slow_tooltip, {duration = duration})
-		ability:ApplyDataDrivenModifier(caster, unit, modifier_slow_kb, {duration = 0.2})
+		ability:ApplyDataDrivenModifier(caster, unit, modifier_slow_kb, {duration = 1})
 		unit:SetModifierStackCount(modifier_slow, caster, stacks)
 		
 		local damageTable = {
@@ -47,7 +46,7 @@ function FluxSmashCast(args)
 		}
 
 		ApplyDamage(damageTable)
-		unit.FS_speed = (length - distance) / (duration / 0.02)
+		unit.FS_speed = (length - distance) / (1 / 0.02)
 		unit.FS_direction = ((unit:GetAbsOrigin() - casterPos) * Vector(1,1,0)):Normalized()
 	 end
 

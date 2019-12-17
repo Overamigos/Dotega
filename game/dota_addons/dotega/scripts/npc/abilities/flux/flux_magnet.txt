@@ -1,0 +1,133 @@
+"DOTAAbilities"
+{
+  "flux_magnet"
+  {
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityUnitDamageType"  "DAMAGE_TYPE_MAGICAL"
+    "BaseClass"           "ability_datadriven"
+    "AbilityTextureName"      "flux_magnet"
+    "AbilityCastRange"         "700"
+    "AoERadius" "400"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "0.0"
+    "AbilityManaCost"         "0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    
+    "precache"
+    {
+      "particle"          "particles/units/heroes/hero_earth_spirit/espirit_geomagentic_target_sphere.vpcf"
+    }
+    
+      // Special  
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"           "FIELD_INTEGER"
+        "amount_per_second"  "10 16 20 24"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "interval"        "0.02"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"             "5.0"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"          "400"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "kbforce"          "0.5 1.0 1.5 2.0"
+      }
+      "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "kb"          "50 100 150 200"
+      }
+    }
+
+  
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+          "ScriptFile"    "heroes/flux/flux_magnet.lua"
+          "Function"      "cast"
+          "duration"      "%duration"
+          "modifier_main_ally" "modifier_main_ally"
+          "modifier_main_enemy" "modifier_main_enemy"
+      }
+    }
+
+   "Modifiers"
+    {
+      "modifier_main_ally"
+      {
+        "Passive"          "0"    
+        "IsDebuff"         "0"
+        "IsHidden"         "0"
+        "IsPurgable"       "1"
+
+        "EffectName"       "particles/units/heroes/hero_earth_spirit/espirit_geomagentic_target_sphere.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "ControlPoints"
+        {
+            "01"    "%radius %radius %radius"
+        }
+
+        "ThinkInterval"     "%interval"
+        "OnIntervalThink"
+        {
+          "RunScript"
+          {
+            "ScriptFile"    "heroes/flux/flux_magnet.lua"
+            "Function"      "pulse"
+            "amount"         "%amount_per_second"
+            "radius"        "%radius"
+            "kbforce"        "%kbforce"
+          }
+        }
+      }
+      "modifier_main_enemy"
+      {
+        "Passive"          "0"    
+        "IsDebuff"         "1"
+        "IsHidden"         "0"
+        "IsPurgable"       "1"
+
+        "EffectName"       "particles/units/heroes/hero_earth_spirit/espirit_geomagentic_target_sphere.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "ControlPoints"
+        {
+            "01"    "%radius %radius %radius"
+        }
+
+        "ThinkInterval"     "%interval"
+        "OnIntervalThink"
+        {
+          "RunScript"
+          {
+            "ScriptFile"    "heroes/flux/flux_magnet.lua"
+            "Function"      "pulse"
+            "amount"         "%amount_per_second"
+            "radius"        "%radius"
+            "kbforce"        "%kbforce"
+          }
+        }
+      }
+    } 
+  }
+}

@@ -5,8 +5,9 @@
     //"ID"              "1852"
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "BaseClass"           "ability_datadriven"
+    "AbilityUnitDamageType"  "DAMAGE_TYPE_MAGICAL"
     "AbilityTextureName"      "flux_smash"
-    "AoERadius"               "1000"
+    "AbilityCastRange"         "150 200 250 300"
     "AbilityCastPoint"        "0.0"
     "AbilityCooldown"       "0.0"
     "AbilityManaCost"         "0"
@@ -17,7 +18,7 @@
     "precache"
     {
       "particle"          "particles/econ/events/ti8/shivas_guard_ti8_slow.vpcf"
-      "particle"          "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+      "particle"          "particles/flux/flux_slam.vpcf"
       "particle"          "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
     }
     
@@ -53,7 +54,12 @@
       "06"
       {
         "var_type"        "FIELD_INTEGER"
-        "duration"        "1 1 1 1"
+        "duration"        "2 2 2 2"
+      }
+      "07"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "force"           "150 200 250 300"
       }
     }
 
@@ -62,7 +68,7 @@
     {
       "AttachEffect"
         {
-            "EffectName"        "particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+            "EffectName"        "particles/flux/flux_slam.vpcf"
             "EffectAttachType"  "attach_origin"
             "Target"            "CASTER"
             "ControlPoints"
@@ -102,7 +108,7 @@
 
         "IsDebuff"         "1"
         "IsHidden"         "0"
-        "IsPurgable"       "1"
+        "IsPurgable"       "0"
 
         "EffectName"       "particles/econ/events/ti8/shivas_guard_ti8_slow.vpcf"
         "EffectAttachType"  "follow_origin"
@@ -111,26 +117,16 @@
             "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
         }
       }
-      "modifier_stack_slow_tooltip"
-      {
-        "Duration"         "%duration"
-        "Passive"          "0"    
-
-        "IsDebuff"         "1"
-        "IsHidden"         "0"
-        "IsPurgable"       "1"
-
-      }
        "modifier_stack_slow_kb"
       {
         "Passive"          "0"    
 
         "IsDebuff"         "1"
-        "IsHidden"         "0"
+        "IsHidden"         "1"
         "IsPurgable"       "1"
 
-        "EffectName"		 "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
-			  "EffectAttachType"	 "follow_origin"
+        //"EffectName"		 "particles/units/heroes/hero_windrunner/windrunner_windrun_dust_color.vpcf"
+			  //"EffectAttachType"	 "follow_origin"
 
         "ThinkInterval"     "0.02"
         "OnIntervalThink"
