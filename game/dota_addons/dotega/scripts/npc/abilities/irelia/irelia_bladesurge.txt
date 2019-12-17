@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+"irelia_bladesurge"
+  {
+    "BaseClass"           "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_RUNE_TARGET"
+    "AbilityTextureName"     "spellicon"
+    "AbilityUnitTargetTeam"  "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"  "DOTA_UNIT_TARGET_ALL"
+    "AbilityUnitDamageType"  "DAMAGE_TYPE_PHYSICAL"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"      "650"
+    "AbilityCooldown"       "1 12 10 8 6"       
+    "AbilityManaCost"       "50 55 60 65 70"
+    "AbilityDamage"         "40 70 100 130 160"
+      
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "Target"        "CASTER"
+        "ModifierName"  "modifier_cooldown_reset"
+        "Duration"      "6"
+      }
+
+      "Knockback"
+      {
+        "Target"      "CASTER"
+        "Center"      "TARGET"
+        "Duration"    "0"
+        "Distance"    "650"
+        "Height"      "0"
+        "ShouldStun"  "0"
+      }
+
+      "Damage"
+      {
+        "Target"
+        {
+          "Center" "TARGET"
+          "Teams" "DOTA_UNIT_TARGET_TEAM_BOTH"
+          "Types" "DOTA_UNIT_TARGET_ALL"
+        }
+        "Type" "DAMAGE_TYPE_PHYSICAL"
+        "Damage" "%AbilityDamage"
+      }
+
+      "RemoveModifier"
+      {
+        "Target"        "CASTER"
+        "ModifierName"  "modifier_cooldown_reset"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_cooldown_reset"
+      {
+        "Passive"           "0"
+        "IsHidden"          "1"
+
+        "OnKill"
+        {
+          "RunScript"
+          {
+            "ScriptFile"    "heroes/irelia/irelia_bladesurge.lua"
+            "Function"      "IreliaBladesurgeEndCoolDown"
+          }
+        }           
+      }
+    }
+
+  }
+}

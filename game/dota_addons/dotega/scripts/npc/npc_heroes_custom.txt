@@ -1,4 +1,5 @@
 #base "heroes/npc_dota_hero_flux.txt"
+#base "heroes/npc_dota_hero_irelia.txt"
 "DOTAHeroes"
 {
 	"npc_dota_hero_ancient_apparition_barebones"
