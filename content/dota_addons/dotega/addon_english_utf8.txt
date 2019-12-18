@@ -18,10 +18,43 @@
 		"DOTA_Tooltip_ability_example_ability_Description"				"Detonator channels a charge and releases an explosion around the caster if the channel is successful, dealing damage and knocking back all enemies in range of the explosion"
 		"DOTA_Tooltip_ability_example_ability_Lore"								""
 		"DOTA_Tooltip_ability_example_ability_duration"							"DURATION:"
-    "DOTA_Tooltip_ability_example_ability_radius"							"RADIUS:"
-    "DOTA_Tooltip_ability_example_ability_distance"							"KNOCKBACK DISTANCE:"
-    "DOTA_Tooltip_ability_example_ability_height"							"KNOCKBACK HEIGHT:"
-		
+		"DOTA_Tooltip_ability_example_ability_radius"							"RADIUS:"
+		"DOTA_Tooltip_ability_example_ability_distance"							"KNOCKBACK DISTANCE:"
+		"DOTA_Tooltip_ability_example_ability_height"							"KNOCKBACK HEIGHT:"
+
+		//Flux
+
+		"DOTA_Tooltip_ability_flux_smash"  "Release"  
+		"DOTA_Tooltip_ability_flux_smash_Description"  "Damages, slows the movement speed and pushes enemies in an area around flux. The ability is stronger the closer the enemies are to flux."
+		"DOTA_Tooltip_ability_flux_smash_Note0" "All effects scale linearly"
+		"DOTA_Tooltip_ability_flux_smash_damage_min"    "MINIMUM DAMAGE:" 
+		"DOTA_Tooltip_ability_flux_smash_damage_max"    "MAXIMUM DAMAGE:"
+		"DOTA_Tooltip_ability_flux_smash_slow_percent_min"    "MINIMUM SLOW PERCENT:"  
+		"DOTA_Tooltip_ability_flux_smash_slow_percent_max"    "MAXIMUM SLOW PERCENT:"
+		"DOTA_Tooltip_ability_flux_smash_force"    "MAXIMUM FORCE:"
+		"DOTA_Tooltip_ability_flux_smash_duration"    "DURATION:"
+
+		"DOTA_Tooltip_ability_flux_magnet"  "Magnetic Surge"  
+		"DOTA_Tooltip_ability_flux_magnet_Description"  "If the target is an enemy hero, periodically deals damage to heroes in an area around the target pulling them closer to the target. If the target is an allied hero, periodically heals allied heroes in an area around the target pushing enemy heroes away from the target. If targeting self, the enemies will be pulled closer. The damage (heal) is stronger based on the number of enemies (allies) affected."
+		"DOTA_Tooltip_ability_flux_magnet_Note0" ""
+		"DOTA_Tooltip_ability_flux_magnet_amount_per_second"    "DAMAGE(HEAL)/SECOND/HERO:" 
+		"DOTA_Tooltip_ability_flux_magnet_duration"    "DURATION:"
+		"DOTA_Tooltip_ability_flux_magnet_radius"    "RADIUS"  
+		"DOTA_Tooltip_ability_flux_magnet_kb"    "FORCE:"
+
+		"DOTA_Tooltip_ability_flux_aura"  "Balance"  
+		"DOTA_Tooltip_ability_flux_aura_Description"  "Aura buff tha gives health regeneration based on the number of enemy heroes and the distance they are to flux. The effect starts at the aura radius and at each 10 units, increases the number of stacks for each hero."
+		"DOTA_Tooltip_ability_flux_aura_Note0" ""
+		"DOTA_Tooltip_ability_flux_aura_regen_per_stack"    "HP REGEN/STACK:" 
+		"DOTA_Tooltip_ability_flux_aura_radius"    "RADIUS"  
+
+		"DOTA_Tooltip_ability_flux_ult"  "Discharge"  
+		"DOTA_Tooltip_ability_flux_ult_Description"  "Channels while pulling enemies closer to flux."
+		"DOTA_Tooltip_ability_flux_ult_Note0" ""
+		"DOTA_Tooltip_ability_flux_ult_radius"    "RADIUS"
+		"DOTA_Tooltip_ability_flux_magnet_force"    "FORCE:"  
+		"DOTA_Tooltip_ability_flux_slam_duration"    "DURATION:"
+			
 		
 		//------------------------
 		// Items
@@ -30,10 +63,11 @@
 		"DOTA_Tooltip_ability_item_example_item_Description"							"Gives the caster a 50% damage reduction for 4 seconds while firing a projectile that deals damage 125 PURE damage to any enemy it hits."
 		"DOTA_Tooltip_ability_item_example_item_Lore"								""
 		"DOTA_Tooltip_ability_item_example_item_duration"							"DURATION:"
-    "DOTA_Tooltip_ability_item_example_item_damage_reduction"							"DAMAGE REDUCTION:"
-    "DOTA_Tooltip_ability_item_example_item_radius"							"PROJECTILE RADIUS:"
-    "DOTA_Tooltip_ability_item_example_item_speed"							"PROJECTILE SPEED:"
-    "DOTA_Tooltip_ability_item_example_item_distance"							"DISTANCE:"
-    "DOTA_Tooltip_ability_item_example_item_damage"							"DAMAGE:"
-	}
+		"DOTA_Tooltip_ability_item_example_item_damage_reduction"							"DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_item_example_item_radius"							"PROJECTILE RADIUS:"
+		"DOTA_Tooltip_ability_item_example_item_speed"							"PROJECTILE SPEED:"
+		"DOTA_Tooltip_ability_item_example_item_distance"							"DISTANCE:"
+		"DOTA_Tooltip_ability_item_example_item_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_item_example_item_length"							"RADIUS:"
+		}
 }

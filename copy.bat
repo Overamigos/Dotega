@@ -1,0 +1,2 @@
+xcopy /s /y "F:\SteamLibrary\steamapps\common\dota 2 beta\game\dota_addons\dotega" "D:\Dotega\game\dota_addons\dotega"
+xcopy /s /y "F:\SteamLibrary\steamapps\common\dota 2 beta\content\dota_addons\dotega" "D:\Dotega\content\dota_addons\dotega"

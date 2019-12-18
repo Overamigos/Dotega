@@ -19,6 +19,12 @@ function pulse(args)
 	local base = args.amount
 	local radius = args.radius
 	local kbforce = args.kbforce
+	local kbextra = 1
+    if caster:HasTalent("special_bonus_flux_force") then
+        kbextra = caster:FindTalentValue("special_bonus_flux_force")
+    end
+	kbforce = kbforce*kbextra
+
 	local posT = target:GetAbsOrigin()
 
 

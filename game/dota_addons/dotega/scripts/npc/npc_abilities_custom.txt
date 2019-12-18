@@ -2,6 +2,7 @@
 #base "abilities/flux/flux_aura.txt"
 #base "abilities/flux/flux_smash.txt"
 #base "abilities/flux/flux_magnet.txt"
+#base "abilities/flux/flux_talents.txt"
 "DOTAAbilities"
 {
 	"barebones_empty1"

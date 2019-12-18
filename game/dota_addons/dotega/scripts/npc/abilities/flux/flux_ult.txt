@@ -36,7 +36,7 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "kbforce"        "-3 -4 -6"
+        "kbforce"        "-3 -4 -5"
       }
       "02"
       {
@@ -51,13 +51,19 @@
       "04"
       {
         "var_type"        "FIELD_INTEGER"
-        "force"           "300 400 600"
+        "force"           "300 400 500"
       }
       "05"
       {
         "var_type"        "FIELD_FLOAT"
         "duration"           "5.0"
       }
+      "06"
+			{
+				"var_type"					    "FIELD_INTEGER"
+				"bonus_force"			      "-3 -4 -5"
+				"LinkedSpecialBonus"		"special_bonus_flux_force"
+			}
     }
 
 
@@ -118,31 +124,13 @@
         "ThinkInterval"     "%tick_rate"
         "OnIntervalThink"
         {
-          "ActOnTargets"
+          "RunScript"
           {
-            "Target"
-            {
-                "Center"    "CASTER"
-                "Radius"    "%radius"
-                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-            }
-            "Action"
-            {
-              "RunScript"
-              {
-                  "ScriptFile"    "heroes/flux/flux_ult.lua"
-                  "Function"      "FluxUltParticle"
-                  "Target"        "TARGET"
-                  "kbforce"       "%kbforce"
-              }
-              "FireSound"
-              {
-                  "EffectName"    ""
-                  "Target"        "CASTER"
-              }
-            }  
-          }       
+              "ScriptFile"    "heroes/flux/flux_ult.lua"
+              "Function"      "FluxUltParticle"
+              "kbforce"       "%kbforce"
+              "radius"        "%radius"
+          }     
         }
       }
       "modifier_effect"

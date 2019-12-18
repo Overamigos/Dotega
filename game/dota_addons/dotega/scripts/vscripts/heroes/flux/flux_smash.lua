@@ -13,6 +13,12 @@ function FluxSmashCast(args)
 	local duration = args.duration
 	local target = casterPos + length*caster:GetForwardVector()
 
+	local kbextra = 1
+    if caster:HasTalent("special_bonus_flux_force") then
+        kbextra = caster:FindTalentValue("special_bonus_flux_force")
+    end
+	
+
 	local teams = DOTA_UNIT_TARGET_TEAM_ENEMY
 	local types = DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO
 	local flags = DOTA_UNIT_TARGET_FLAG_NONE
@@ -46,7 +52,8 @@ function FluxSmashCast(args)
 		}
 
 		ApplyDamage(damageTable)
-		unit.FS_speed = (length - distance) / (1 / 0.02)
+
+		unit.FS_speed = (length - distance) / (1 / 0.02)*kbextra
 		unit.FS_direction = ((unit:GetAbsOrigin() - casterPos) * Vector(1,1,0)):Normalized()
 	 end
 

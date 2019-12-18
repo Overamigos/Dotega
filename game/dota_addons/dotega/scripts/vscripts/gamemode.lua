@@ -10,6 +10,10 @@ if GameMode == nil then
     _G.GameMode = class({})
 end
 
+-- Massive thanks to Dota IMBA
+-- Extension of some base classes
+require('libraries/player')
+
 -- This library allow for easily delayed/timed actions
 require('libraries/timers')
 -- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
@@ -21,13 +25,13 @@ require('libraries/notifications')
 -- This library can be used for starting customized animations on units from lua
 require('libraries/animations')
 -- This library can be used for performing "Frankenstein" attachments on units
-require('libraries/attachments')
+--require('libraries/attachments')
 -- This library can be used to synchronize client-server data via player/client-specific nettables
 require('libraries/playertables')
 -- This library can be used to create container inventories or container shops
 require('libraries/containers')
 -- This library provides a searchable, automatically updating lua API in the tools-mode via "modmaker_api" console command
-require('libraries/modmaker')
+--require('libraries/modmaker')
 -- This library provides an automatic graph construction of path_corner entities within the map
 require('libraries/pathgraph')
 -- This library (by Noya) provides player selection inspection and management from server lua

@@ -57,6 +57,12 @@
         "var_type"        "FIELD_INTEGER"
         "kb"          "50 100 150 200"
       }
+      // "07"
+			// {
+			// 	"var_type"					"FIELD_FLOAT"
+			// 	"bonus_force"			"0.5 1.0 1.5 2.0"
+			// 	"LinkedSpecialBonus"		"speacial_bonus_flux_force"
+			// }
     }
 
   
